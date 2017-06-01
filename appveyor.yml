@@ -5,4 +5,5 @@ build_script:
   - cmake .. -G "Visual Studio 14 2015 Win64"
   - cmake --build . --config Debug
   - cd Debug
+  - DIR
   - for /r "." %%a in (*.exe) do (call :subroutine "%%~fa")
