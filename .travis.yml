@@ -1,7 +1,8 @@
 language: cpp
 compiler: gcc
-run:
+script:
   - mkdir build
+  - cd build
   - cmake ..
   - make
   - ./data_layout_study
