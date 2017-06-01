@@ -2,7 +2,7 @@
 #include <iostream>
 
 using std::cout;
-/*
+
 struct EightBools
 {
   bool one;
@@ -27,13 +27,12 @@ struct Sandwich
   uint32_t end;
 };
 
-*/
 int main()
 {
   cout << "data layout study start" << '\n';
-  //cout << "size of eight bools = " << sizeof(EightBools) << '\n'; 
-  //cout << "size of dangling end = " << sizeof(DanglingEnd) << '\n'; 
-  //cout << "size of sandwich= " << sizeof(Sandwich) << '\n'; 
+  cout << "size of eight bools = " << sizeof(EightBools) << '\n'; 
+  cout << "size of dangling end = " << sizeof(DanglingEnd) << '\n'; 
+  cout << "size of sandwich= " << sizeof(Sandwich) << '\n'; 
   cout << "data layout study end" << '\n';
   return EXIT_SUCCESS;
 }
