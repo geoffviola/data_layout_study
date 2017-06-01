@@ -1,0 +1,13 @@
+language: cpp
+compiler: gcc
+run:
+  - mkdir build
+  - cmake ..
+  - make
+  - ./data_layout_study
+  - cmake -DCMAKE_CXX_FLAGS="-fpack-struct" ..
+  - make
+  - ./data_layout_study
+os:
+  - linux
+  - osx
