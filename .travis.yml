@@ -1,4 +1,4 @@
-matric:
+matrix:
   include:
     - os: linux
       sudo: required
