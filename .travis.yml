@@ -12,9 +12,6 @@ script:
   - cmake -DCMAKE_CXX_FLAGS="-std=c++11" ..
   - make
   - ./data_layout_study
-  - cmake -DCMAKE_CXX_FLAGS="-std=c++11 -fpack-struct" ..
-  - make
-  - ./data_layout_study
 os:
   - linux
   - osx
