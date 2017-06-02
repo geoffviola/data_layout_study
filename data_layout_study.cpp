@@ -63,6 +63,11 @@ struct SandwichPacked
   uint32_t end;
 });
 
+static bool is_little_endian()
+{
+  uint16_t one = 1;
+  return 1U == *reinterpret_cast<uint8_t*>(&one);
+}
 
 int main()
 {
@@ -74,6 +79,7 @@ int main()
   cout << "size of eight bools = " << sizeof(EightBoolsPacked) << '\n'; 
   cout << "size of dangling end = " << sizeof(DanglingEndPacked) << '\n'; 
   cout << "size of sandwich= " << sizeof(SandwichPacked) << '\n'; 
+  cout << "endianness is " << (is_little_endian() ? "little" : "big") << '\n'; 
   cout << "data layout study end" << '\n';
   return EXIT_SUCCESS;
 }
