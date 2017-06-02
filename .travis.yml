@@ -1,8 +1,14 @@
 matrix:
   include:
     - os: linux
+      language: cpp
+      compiler: gcc
       sudo: required
     - os: osx
+      language: cpp
+      compiler: clang
+before_install:
+  - uname -p
 install: if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
 script:
   - mkdir build
