@@ -6,8 +6,8 @@ if [ $# -lt 1 ]; then
 fi
 
 CHROOT_DIR=$1
-MIRROR=http://ftp.us.debian.org/debian
-VERSION=jessie
+MIRROR=http://archive.raspbian.org/raspbian
+VERSION=wheezy
 CHROOT_ARCH=armhf
 
 # Debian package dependencies for the host
