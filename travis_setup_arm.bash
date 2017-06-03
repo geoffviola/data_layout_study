@@ -5,7 +5,7 @@ if [ $# -lt 1 ]; then
         exit 1
 fi
 
-CHROOT_DIR=$2
+CHROOT_DIR=$1
 MIRROR=http://archive.raspbian.org/raspbian
 VERSION=wheezy
 CHROOT_ARCH=armhf
