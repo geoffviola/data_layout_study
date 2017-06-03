@@ -17,11 +17,7 @@ matrix:
       compiler: clang
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
-  - if [[ "${ARCH}" = "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; fi
-  - $PREPEND_CMD uname -p
+  - if [[ "$ARCH" == "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; export PREPEND_CMD=$PREPEND_CMD/$TRAVIS_BUILD_DIR fi
+  - $PREPEND_CMD uname -a
 script:
-  - $PREPEND_CMD mkdir build
-  - $PREPEND_CMD cd build
-  - $PREPEND_CMD cmake -DCMAKE_CXX_FLAGS="-std=c++11" ..
-  - $PREPEND_CMD make
-  - $PREPEND_CMD ./data_layout_study
+  - $PREPEND_CMD ./travis_setup_arm.bash

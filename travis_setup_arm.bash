@@ -43,17 +43,3 @@ sudo chroot ${CHROOT_DIR} apt-get --allow-unauthenticated install \
 sudo mkdir -p ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}
 sudo rsync -av ${TRAVIS_BUILD_DIR}/ ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}/
 
-# Indicate chroot environment has been set up
-#sudo touch ${CHROOT_DIR}/.chroot_is_done
-
-# Call ourselves again which will cause tests to run
-#sudo chroot ${CHROOT_DIR} bash -c "cd ${TRAVIS_BUILD_DIR} && ./.travis-ci.sh"
-
-echo ARM SETUP
-pwd
-ls
-sudo chroot ${CHROOT_DIR} bash -c "pwd && ls"
-sudo chroot ${CHROOT_DIR} bash -c "uname -a"
-cd ${CHROOT_DIR}
-pwd
-ls
