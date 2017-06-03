@@ -14,7 +14,7 @@ CHROOT_ARCH=armhf
 HOST_DEPENDENCIES="debootstrap qemu-user-static binfmt-support sbuild"
 
 # Debian package dependencies for the chrooted environment
-GUEST_DEPENDENCIES="build-essential git m4 sudo python"
+GUEST_DEPENDENCIES="build-essential sudo cmake uname"
 
 # Host dependencies
 sudo apt-get install -qq -y ${HOST_DEPENDENCIES}

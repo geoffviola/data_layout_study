@@ -18,6 +18,7 @@ matrix:
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
   - if [[ "$ARCH" == "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; export PREPEND_CMD=$PREPEND_CMD/$TRAVIS_BUILD_DIR ; fi
+  - echo $PREPEND_CMD
   - $PREPEND_CMD uname -a
 script:
   - $PREPEND_CMD ./build_script.bash
