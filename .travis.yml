@@ -17,7 +17,7 @@ before_install:
   - uname -p
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
-  - if [[ "${ARCH}" = "arm" ]; then ./setup_arm.bash ; fi
+  - if [[ "${ARCH}" = "arm" ]]; then ./setup_arm.bash ; fi
 script:
   - mkdir build
   - cd build
