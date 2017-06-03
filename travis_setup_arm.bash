@@ -6,7 +6,7 @@ if [ $# -lt 1 ]; then
 fi
 
 CHROOT_DIR=$1
-MIRROR=http://archive.raspbian.org/raspbian
+MIRROR=http://ftp.us.debian.org/debian
 VERSION=jessie
 CHROOT_ARCH=armhf
 
