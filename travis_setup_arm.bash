@@ -43,5 +43,3 @@ sudo chroot ${CHROOT_DIR} apt-get --allow-unauthenticated install \
 sudo mkdir -p ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}
 sudo rsync -av ${TRAVIS_BUILD_DIR}/ ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}/
 
-echo ENDING_SCRIPT
-echo ${TRAVIS_BUILD_DIR}
