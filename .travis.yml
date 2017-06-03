@@ -7,6 +7,7 @@ matrix:
       env:
         - ARCH=arm
         - ARM_DIR=/tmp/arm-chroot
+        - PREPEND_CMD="sudo chroot $ARM_DIR"
     - os: linux
       language: cpp
       compiler: gcc
@@ -16,11 +17,11 @@ matrix:
       compiler: clang
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
-  - if [[ "${ARCH}" = "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; cd $ARM_DIR ; fi
-  - uname -p
+  - if [[ "${ARCH}" = "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; fi
+  - $PREPEND_CMD uname -p
 script:
-  - mkdir build
-  - cd build
-  - cmake -DCMAKE_CXX_FLAGS="-std=c++11" ..
-  - make
-  - ./data_layout_study
+  - $PREPEND_CMD mkdir build
+  - $PREPEND_CMD cd build
+  - $PREPEND_CMD cmake -DCMAKE_CXX_FLAGS="-std=c++11" ..
+  - $PREPEND_CMD make
+  - $PREPEND_CMD ./data_layout_study
