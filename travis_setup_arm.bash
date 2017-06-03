@@ -7,14 +7,14 @@ fi
 
 CHROOT_DIR=$1
 MIRROR=http://archive.raspbian.org/raspbian
-VERSION=wheezy
+VERSION=jessie
 CHROOT_ARCH=armhf
 
 # Debian package dependencies for the host
 HOST_DEPENDENCIES="debootstrap qemu-user-static binfmt-support sbuild"
 
 # Debian package dependencies for the chrooted environment
-GUEST_DEPENDENCIES="build-essential sudo cmake uname"
+GUEST_DEPENDENCIES="build-essential sudo cmake"
 
 # Host dependencies
 sudo apt-get install -qq -y ${HOST_DEPENDENCIES}
