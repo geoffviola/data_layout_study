@@ -1,10 +1,11 @@
 matrix:
   include:
     - os: linux
-      arch: ARM
       language: cpp
       compiler: gcc
       sudo: required
+      env:
+        - ARCH=arm
     - os: linux
       language: cpp
       compiler: gcc
@@ -14,7 +15,9 @@ matrix:
       compiler: clang
 before_install:
   - uname -p
-install: if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
+  - if [[ "${ARCH}" = "arm" ]; then ./setup_arm.bash ; fi
 script:
   - mkdir build
   - cd build
