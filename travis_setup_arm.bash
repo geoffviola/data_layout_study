@@ -22,7 +22,8 @@ sudo apt-get install -qq -y ${HOST_DEPENDENCIES}
 # Create chrooted environment
 sudo mkdir ${CHROOT_DIR}
 debootstrap --version
-sudo apt -upgrade -qq
+sudo apt-get update
+sudo apt-get -y upgrade
 debootstrap --version
 sudo debootstrap --foreign --no-check-gpg --include=fakeroot,build-essential \
     --arch=${CHROOT_ARCH} ${VERSION} ${CHROOT_DIR} ${MIRROR}
