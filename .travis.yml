@@ -16,7 +16,7 @@ matrix:
       compiler: clang
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
-  - if [[ "${ARCH}" = "arm" ]]; then ./setup_arm.bash ; cd $ARM_DIR ; fi
+  - if [[ "${ARCH}" = "arm" ]]; then ./travis_setup_arm.bash.bash $ARM_DIR ; cd $ARM_DIR ; fi
   - uname -p
 script:
   - mkdir build
