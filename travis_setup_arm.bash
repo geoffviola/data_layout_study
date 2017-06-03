@@ -7,7 +7,7 @@ fi
 
 CHROOT_DIR=$1
 MIRROR=http://archive.raspbian.org/raspbian
-VERSION=wheezy
+VERSION=jessie
 CHROOT_ARCH=armhf
 
 # Debian package dependencies for the host
@@ -21,6 +21,9 @@ sudo apt-get install -qq -y ${HOST_DEPENDENCIES}
 
 # Create chrooted environment
 sudo mkdir ${CHROOT_DIR}
+debootstrap --version
+sudo apt -upgrade -qq
+debootstrap --version
 sudo debootstrap --foreign --no-check-gpg --include=fakeroot,build-essential \
     --arch=${CHROOT_ARCH} ${VERSION} ${CHROOT_DIR} ${MIRROR}
 sudo cp /usr/bin/qemu-arm-static ${CHROOT_DIR}/usr/bin/
@@ -30,9 +33,9 @@ sudo sbuild-createchroot --arch=${CHROOT_ARCH} --foreign --setup-only \
 
 # Create file with environment variables which will be used inside chrooted
 # environment
-echo "export ARCH=${ARCH}" > envvars.sh
-echo "export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}" >> envvars.sh
-chmod a+x envvars.sh
+#echo "export ARCH=${ARCH}" > envvars.sh
+#echo "export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}" >> envvars.sh
+#chmod a+x envvars.sh
 
 # Install dependencies inside chroot
 sudo chroot ${CHROOT_DIR} apt-get update
