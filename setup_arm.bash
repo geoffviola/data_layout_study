@@ -42,7 +42,12 @@ sudo rsync -av ${TRAVIS_BUILD_DIR}/ ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}/
 sudo touch ${CHROOT_DIR}/.chroot_is_done
 
 # Call ourselves again which will cause tests to run
-sudo chroot ${CHROOT_DIR} bash -c "cd ${TRAVIS_BUILD_DIR} && ./.travis-ci.sh"
+#sudo chroot ${CHROOT_DIR} bash -c "cd ${TRAVIS_BUILD_DIR} && ./.travis-ci.sh"
 
 echo ARM SETUP
+pwd
+ls
+usdo chroot ${CHROOT_DIR} bash -c "pwd && ls"
+cd ${CHROOT_DIR}
+pwd
 ls
