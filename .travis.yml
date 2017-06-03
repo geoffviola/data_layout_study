@@ -20,4 +20,4 @@ install:
   - if [[ "$ARCH" == "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; export PREPEND_CMD=$PREPEND_CMD/$TRAVIS_BUILD_DIR ; fi
   - $PREPEND_CMD uname -a
 script:
-  - $PREPEND_CMD ./travis_setup_arm.bash
+  - $PREPEND_CMD ./build_script.bash
