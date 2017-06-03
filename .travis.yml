@@ -20,4 +20,4 @@ install:
   - if [[ "$ARCH" == "arm" ]]; then ./travis_setup_arm.bash $ARM_DIR ; fi
   - $PREPEND_CMD uname -a
 script:
-  - if [[ "ARCH" == "arm" ]]; then $PREPEND_CMD bash -c "cd $TRAVIS_BUILD_DIR && ./build_script.bash" ; echo top ; else ./build_script.bash ; fi
+  - if [[ "$ARCH" == "arm" ]]; then $PREPEND_CMD bash -c "cd $TRAVIS_BUILD_DIR && ./build_script.bash" ; echo top ; else ./build_script.bash ; fi
