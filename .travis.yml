@@ -6,6 +6,7 @@ matrix:
       sudo: required
       env:
         - ARCH=arm
+        - ARM_DIR=/tmp/arm-chroot
     - os: linux
       language: cpp
       compiler: gcc
@@ -13,11 +14,10 @@ matrix:
     - os: osx
       language: cpp
       compiler: clang
-before_install:
-  - uname -p
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis_ubuntu_install.bash ; fi
-  - if [[ "${ARCH}" = "arm" ]]; then ./setup_arm.bash ; fi
+  - if [[ "${ARCH}" = "arm" ]]; then ./setup_arm.bash ; cd $ARM_DIR ; fi
+  - uname -p
 script:
   - mkdir build
   - cd build

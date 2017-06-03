@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-CHROOT_DIR=/tmp/arm-chroot
+if [ $# -lt 1 ]; then
+        echo "Usage: $0 emu dir"
+        exit 1
+fi
+
+CHROOT_DIR=$2
 MIRROR=http://archive.raspbian.org/raspbian
 VERSION=wheezy
 CHROOT_ARCH=armhf
@@ -39,7 +44,7 @@ sudo mkdir -p ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}
 sudo rsync -av ${TRAVIS_BUILD_DIR}/ ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}/
 
 # Indicate chroot environment has been set up
-sudo touch ${CHROOT_DIR}/.chroot_is_done
+#sudo touch ${CHROOT_DIR}/.chroot_is_done
 
 # Call ourselves again which will cause tests to run
 #sudo chroot ${CHROOT_DIR} bash -c "cd ${TRAVIS_BUILD_DIR} && ./.travis-ci.sh"
@@ -47,7 +52,8 @@ sudo touch ${CHROOT_DIR}/.chroot_is_done
 echo ARM SETUP
 pwd
 ls
-usdo chroot ${CHROOT_DIR} bash -c "pwd && ls"
+sudo chroot ${CHROOT_DIR} bash -c "pwd && ls"
+sudo chroot ${CHROOT_DIR} bash -c "uname -a"
 cd ${CHROOT_DIR}
 pwd
 ls
