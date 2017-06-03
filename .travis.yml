@@ -21,4 +21,4 @@ install:
   - echo $PREPEND_CMD
   - $PREPEND_CMD uname -a
 script:
-  - $PREPEND_CMD "cd $TRAVIS_BUILD_DIR && ./build_script.bash"
+  - $PREPEND_CMD cd $TRAVIS_BUILD_DIR && ./build_script.bash
